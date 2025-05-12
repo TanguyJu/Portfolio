@@ -3,25 +3,64 @@
   top: 0;
   width: 100%;
   background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
-  nav ul {
+  .header__branding {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    padding-left: 2rem;
+  }
+  
+  .header__logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 60px;
+  }
+
+  .header__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+
+  .header__nav ul {
+    display: flex;
+    height: 100%;
     list-style: none;
-    padding: 30px;
     margin: 0;
-    justify-content: right;
+    padding: 0;
 
-    li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
+    li {
+      height: 100%;
 
-    li a:hover {
-      color: #007BFF;
+      a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 1.5rem;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover,
+        &.active {
+          background-color: #000;
+          color: #fff;
+        }
+      }
     }
   }
 }

@@ -4,12 +4,13 @@ import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer/Footer";
 
 export default function RoutesApp() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: "80px" }}>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
@@ -17,6 +18,7 @@ export default function RoutesApp() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }

@@ -13,12 +13,19 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Zector';
+  src: url('/src/assets/fonts/Lato-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Zector', 'Montserrat', sans-serif;
   color: #333;
-  background-color: #fff;
+  background-color: #ffffff;
   line-height: 1.6;
-  padding-top: 80px; // pour compenser le header fixe
+  padding-top: 60px;
 }
 
 /* ----------- LIENS ----------- */

@@ -1,0 +1,27 @@
+.home {
+    &__intro {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 3rem 3rem;
+      text-align: center;
+  
+      h2 {
+        font-size: 2rem;
+        padding-bottom: 20px;
+      }
+
+      .home__separator {
+        width: 100px;
+        height: 1px;
+        background-color: #333;
+        margin: 1rem auto 1rem;
+      }
+  
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+        margin-top: 40px;
+      }
+    }
+  }

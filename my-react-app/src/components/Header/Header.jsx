@@ -1,22 +1,29 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
+import logo from "../../assets/logoTJ.png"
 
 export default function Header() {
   return (
     <header className="header">
-      <nav>
-        <ul>
-          <li><Link to="/">ACCUEIL</Link></li>
-          <li><Link to="/projects">REALISATIONS</Link></li>
-          <li><Link to="/skills">COMPETENCES</Link></li>
-          <li><Link to="/contact">CONTACT</Link></li>
-          <li>
-            <a href="/assets/CV_Tanguy.pdf" target="_blank" rel="noopener noreferrer">
-              MON CV
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div className="header__container">
+        <div className="header__branding">
+        <img src={logo} alt="Logo Tanguy Julien" className="header__logo" />
+        <h1 className="header__title">Tanguy Julien</h1>
+        </div>
+        <nav className="header__nav">
+          <ul>
+            <li><NavLink to="/" end>ACCUEIL</NavLink></li>
+            <li><NavLink to="/projects">RÉALISATIONS</NavLink></li>
+            <li><NavLink to="/skills">COMPÉTENCES</NavLink></li>
+            <li><NavLink to="/contact">CONTACT</NavLink></li>
+            <li>
+              <a href="/assets/CV_Tanguy.pdf" target="_blank" rel="noopener noreferrer">
+                MON CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }
