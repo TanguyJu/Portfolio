@@ -1,5 +1,5 @@
 import "./Banner.scss";
-import bannerImage from "../../assets/banner3.jpg"; // adapte le nom du fichier si besoin
+import bannerImage from "../../assets/banner3.webp";
 
 export default function Banner() {
   return (

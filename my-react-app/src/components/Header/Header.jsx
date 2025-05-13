@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
-import logo from "../../assets/logoTJ.png"
+import logo from "../../assets/logoTJ.webp"
 
 export default function Header() {
   return (
@@ -17,7 +17,7 @@ export default function Header() {
             <li><NavLink to="/skills">COMPÉTENCES</NavLink></li>
             <li><NavLink to="/contact">CONTACT</NavLink></li>
             <li>
-              <a href="/assets/CV_Tanguy.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/TanguyCV.pdf" target="_blank" rel="noopener noreferrer">
                 MON CV
               </a>
             </li>
