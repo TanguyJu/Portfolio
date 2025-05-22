@@ -11,22 +11,21 @@ export default function ProjectModal({ project, onClose }) {
     }, 200);
   };
 
-  useEffect(() => {
-    // Fermer avec la touche Escape
-    const handleEsc = (e) => {
-      if (e.key === "Escape") handleClose();
-    };
-    document.addEventListener("keydown", handleEsc);
+useEffect(() => {
+  const handleEsc = (e) => {
+    if (e.key === "Escape") handleClose();
+  };
 
-    // Désactiver le scroll du body
-    document.body.style.overflow = "hidden";
+  document.addEventListener("keydown", handleEsc);
 
-    // Nettoyage au démontage
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-      document.body.style.overflow = "";
-    };
-  }, []);
+  // Ajout de la classe qui bloque le scroll global
+  document.body.classList.add("no-scroll");
+
+  return () => {
+    document.removeEventListener("keydown", handleEsc);
+    document.body.classList.remove("no-scroll");
+  };
+}, []);
 
   return (
     <div className="project-modal__overlay" onClick={handleClose}>

@@ -30,6 +30,15 @@ body {
   overflow-x: hidden;
 }
 
+body.no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
 /* ----------- LIENS ----------- */
 a {
   color: inherit;

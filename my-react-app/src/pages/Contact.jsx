@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 import "./Contact.scss";
 
 export default function Contact() {
@@ -12,6 +13,8 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,27 +49,36 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      setIsSending(true);
-      emailjs
-        .send(
-          "service_abkssb5",
-          "template_wrtbq1c",
-          formData,
-          "qRTjlf9u4bxkcAd4g"
-        )
-        .then(() => {
-          setFormData({ name: "", email: "", message: "" });
-          setErrors({});
-          setIsSending(false);
-          setIsSent(true);
-          setTimeout(() => setIsSent(false), 4000); // retour à l’état normal
-        })
-        .catch(() => {
-          setIsSending(false);
-          alert("Une erreur est survenue. Veuillez réessayer.");
-        });
+
+    if (!validate()) return;
+
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if (!recaptchaValue) {
+      alert("Veuillez valider le reCAPTCHA.");
+      return;
     }
+
+    setIsSending(true);
+
+    emailjs
+      .send(
+        "service_abkssb5",
+        "template_wrtbq1c",
+        formData,
+        "qRTjlf9u4bxkcAd4g"
+      )
+      .then(() => {
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+        setIsSending(false);
+        setIsSent(true);
+        recaptchaRef.current.reset(); // Réinitialise le captcha
+        setTimeout(() => setIsSent(false), 4000);
+      })
+      .catch(() => {
+        setIsSending(false);
+        alert("Une erreur est survenue. Veuillez réessayer.");
+      });
   };
 
   return (
@@ -116,6 +128,13 @@ export default function Contact() {
             onChange={handleChange}
           />
           {errors.message && <span className="contact__error">{errors.message}</span>}
+        </div>
+
+        <div className="contact__field">
+          <ReCAPTCHA
+            sitekey="6LejdkUrAAAAAO9hye65o58sBPDi3yIccQPGTB6U"
+            ref={recaptchaRef}
+          />
         </div>
 
         <button
