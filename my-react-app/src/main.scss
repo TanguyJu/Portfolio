@@ -11,6 +11,7 @@
 html {
   font-size: 16px; // Base de rems
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -26,6 +27,7 @@ body {
   background-color: #ffffff;
   line-height: 1.6;
   padding-top: 60px;
+  overflow-x: hidden;
 }
 
 /* ----------- LIENS ----------- */

@@ -1,0 +1,151 @@
+.skillwheel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 11rem auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .skillwheel__circle {
+    position: relative;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    transform-origin: center center;
+    transition: transform 0.1s linear;
+
+    @media (max-width: 768px) {
+      width: 16rem;
+      height: 16rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 12rem;
+      height: 12rem;
+    }
+  }
+
+  .skillwheel__branch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+  }
+
+  .skillwheel__bubble {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -8rem);
+    transition: transform 0.3s, opacity 0.3s;
+
+    @media (max-width: 768px) {
+      transform: translate(-50%, -8rem);
+    }
+
+    @media (max-width: 480px) {
+      transform: translate(-50%, -6rem);
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 1;
+      cursor: pointer;
+      transition: filter 0.3s, opacity 0.3s;
+
+      @media (max-width: 768px) {
+        width: 32px;
+        height: 32px;
+      }
+
+      @media (max-width: 480px) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .skillwheel__branch.active & img {
+      filter: none;
+      opacity: 0.6;
+    }
+
+    &:hover img {
+      filter: none;
+      opacity: 0.6;
+    }
+  }
+
+  .skillwheel__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f5f5f5;
+    border-radius: 50%;
+    padding: 2rem;
+    width: 30rem;
+    height: 30rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      width: 20rem;
+      height: 20rem;
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 20rem;
+      height: 20rem;
+      padding: 1rem;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      font-size: 1.9rem;
+
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      color: #555;
+
+      @media (max-width: 480px) {
+        font-size: 0.75rem;
+      }
+    }
+
+    .skillwheel__center-logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+
+      @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+      }
+
+      @media (max-width: 480px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

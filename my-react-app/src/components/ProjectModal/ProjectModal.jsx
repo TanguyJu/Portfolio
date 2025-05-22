@@ -12,11 +12,20 @@ export default function ProjectModal({ project, onClose }) {
   };
 
   useEffect(() => {
+    // Fermer avec la touche Escape
     const handleEsc = (e) => {
       if (e.key === "Escape") handleClose();
     };
     document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
+
+    // Désactiver le scroll du body
+    document.body.style.overflow = "hidden";
+
+    // Nettoyage au démontage
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   return (

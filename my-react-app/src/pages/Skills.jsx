@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Skills.scss";
-import SkillBars from "../components/SkillBars/SkillBars";
 import skillsData from "../data/skillsData";
+import SkillWheel from "../components/SkillWheel/SkillWheel";
 
 export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -33,7 +33,7 @@ export default function Skills() {
         })}
       </div>
       <div className="home__separator"></div>
-      <SkillBars />
+      <SkillWheel />
     </section>
   );
 }
