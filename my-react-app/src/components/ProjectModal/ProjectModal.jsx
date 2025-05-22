@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import "./ProjectModal.scss";
+import { useCallback } from "react";
 
 export default function ProjectModal({ project, onClose }) {
   const [closing, setClosing] = useState(false);
 
-  const handleClose = () => {
-    setClosing(true);
-    setTimeout(() => {
-      onClose();
-    }, 200);
-  };
+  const handleClose = useCallback(() => {
+  setClosing(true);
+  setTimeout(() => {
+    onClose();
+  }, 200);
+}, [onClose]);
 
 useEffect(() => {
   const handleEsc = (e) => {
@@ -25,7 +26,7 @@ useEffect(() => {
     document.removeEventListener("keydown", handleEsc);
     document.body.classList.remove("no-scroll");
   };
-}, []);
+}, [handleClose]);
 
   return (
     <div className="project-modal__overlay" onClick={handleClose}>
@@ -34,7 +35,7 @@ useEffect(() => {
         onClick={(e) => e.stopPropagation()}
       >
         <button className="project-modal__close" onClick={handleClose}>
-          ×
+          X
         </button>
         <img src={project.fullImage} alt={project.title} />
         <h2>{project.title}</h2>
